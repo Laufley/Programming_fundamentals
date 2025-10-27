@@ -1,0 +1,40 @@
+import asyncio
+import random
+
+async def weather_api_call() :
+    print("calling on gencat/meteocat/barcelona/weather")
+    await asyncio.sleep(random.randint(1, 2))
+    print("waiting for permision to access weather data...")
+    await asyncio.sleep(random.randint(1, 5))
+    print("retrieving weatherdata by specified location...")
+    await asyncio.sleep(random.randint(1,5))
+    print("weather data retrieved"),
+
+async def news_api_call():
+    print("calling on gencat/barcelona/news/")
+    await asyncio.sleep(random.randint(1, 2))
+    print("waiting for permision to access news data...")
+    await asyncio.sleep(random.randint(1, 5))
+    print("retrieving news data...")
+    await asyncio.sleep(random.randint(1,5))
+    print("news data retrieved"),
+
+async def currency_api_call():
+    print("calling on lacaixa/currecy/")
+    await asyncio.sleep(random.randint(1, 2))
+    print("waiting for permision to access necurrency data...")
+    await asyncio.sleep(random.randint(1, 5))
+    print("retrieving currency data...")
+    await asyncio.sleep(random.randint(1,5))
+    return("currency data retrieved")
+    print("currency data retrieved"),
+
+async def api_fetcher_function():
+    await asyncio.gather(
+        weather_api_call(),
+        news_api_call(),
+        currency_api_call(),
+    )
+    print("All data loaded!")
+
+asyncio.run(api_fetcher_function())
